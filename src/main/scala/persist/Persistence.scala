@@ -5,7 +5,7 @@ import java.sql.DriverManager
 import java.sql.Connection
 
 
-class Persistence {
+object Persistence {
   val driver = "com.mysql.jdbc.Driver"
   val url = "jdbc:mysql://localhost/mysql"
   val username = "root"

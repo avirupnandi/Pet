@@ -13,18 +13,17 @@ import scala.io.StdIn
 object ViewRoute {
   def apply()(implicit system: ActorSystem) = {
 
-    var persist = new Persistence
     concat(
       path("getpets") {
         get {
-          complete(HttpEntity(ContentTypes.`text/plain(UTF-8)`, persist.get().toString))
+          complete(HttpEntity(ContentTypes.`text/plain(UTF-8)`, Persistence.get().toString))
         }
       },
       path("addpets") {
         post {
           entity(as[String]){
             pet =>
-              persist.insert(Pet(pet))
+              Persistence.insert(Pet(pet))
               complete("pets added")
           }
 
@@ -34,7 +33,7 @@ object ViewRoute {
         post {
           entity(as[String]){
             pet =>
-              persist.delete(pet)
+              Persistence.delete(pet)
               complete("pets deleted")
           }
         }
