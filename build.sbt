@@ -12,7 +12,8 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-actor-typed" % AkkaVersion,
   "com.typesafe.akka" %% "akka-stream" % AkkaVersion,
   "com.typesafe.akka" %% "akka-http" % AkkaHttpVersion,
-  "com.typesafe.akka" %% "akka-persistence" % AkkaVersion
+  "com.typesafe.akka" %% "akka-persistence" % AkkaVersion,
+  "mysql" % "mysql-connector-java" % "5.1.12"
 )
 enablePlugins(JavaAppPackaging)
 enablePlugins(DockerPlugin)
